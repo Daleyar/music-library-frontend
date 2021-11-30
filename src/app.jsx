@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import axios from 'axios';
 import MusicTable from "./components/MusicTable/musicTable";
+import FilterSearch from "./components/SearchBar/searchBar";
+import NavBar from "./components/NavBar/navBar";
 
 class App extends Component {
     constructor(props) {
@@ -38,9 +40,17 @@ class App extends Component {
         }
     }
 
+    filterSongs = (filtered) => {
+        this.setState({
+            songs:filtered
+        })
+    }
+
     render(){ 
         return ( 
             <React.Fragment>
+                <NavBar/>
+                <FilterSearch search={this.state.songs} filterAction={this.filterSongs}/>
                 <MusicTable song={this.state.songs}/>
             </React.Fragment>
         );

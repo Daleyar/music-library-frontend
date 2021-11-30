@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import axios from 'axios';
+import MusicTable from "./components/MusicTable/musicTable";
 
 class App extends Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class App extends Component {
     render(){ 
         return ( 
             <React.Fragment>
-
+                <MusicTable song={this.state.songs}/>
             </React.Fragment>
         );
     }
